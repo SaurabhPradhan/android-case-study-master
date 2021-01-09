@@ -72,9 +72,8 @@
                 android:layout_marginStart="@dimen/common_view_margin"
                 android:layout_marginTop="@dimen/detailed_des_view_top_margin"
                 android:layout_marginEnd="@dimen/common_view_margin"
-                android:textColor="@color/product_title_color"
+                android:textColor="@color/product_desc_color"
                 android:textSize="@dimen/detailed_des_title_text_size"
-                android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@+id/title" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -84,11 +83,11 @@
         android:id="@+id/addToList"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/regular_price_color"
+        android:background="@color/add_to_list_back_color"
         android:gravity="center"
         android:minHeight="@dimen/detail_button_min_height"
         android:text="@string/add_to_list"
-        android:textColor="@color/product_title_color"
+        android:textColor="@color/add_to_list_color"
         android:textSize="@dimen/detailed_title_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline"

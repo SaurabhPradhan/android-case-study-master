@@ -27,6 +27,7 @@
         android:layout_marginTop="@dimen/title_margin_top"
         android:layout_marginEnd="@dimen/title_margin_start"
         android:maxLines="2"
+        android:textColor="@color/product_title_color"
         android:padding="@dimen/title_padding"
         android:textSize="@dimen/title_text_size"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,6 +52,7 @@
         android:layout_marginTop="@dimen/price_margin_top"
         android:padding="@dimen/price_padding"
         android:textSize="@dimen/price_text_size"
+        android:textColor="@color/product_title_color"
         app:layout_constraintStart_toEndOf="@+id/productImageView"
         app:layout_constraintTop_toBottomOf="@+id/titleDivider" />
 
@@ -78,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/aisle_or_margin_start"
         android:layout_marginTop="@dimen/aisle_or_margin_top"
-        android:alpha="0.3"
+        android:textColor="@color/or_text_color"
         android:padding="@dimen/aisle_or_padding"
         android:text="@string/text_or"
         android:textSize="@dimen/aisle_or_text_size"
@@ -93,6 +95,7 @@
         android:layout_marginTop="@dimen/aisle_ship_text_margin_top"
         android:padding="@dimen/aisle_ship_text_padding"
         android:text="@string/text_ship"
+        android:textColor="@color/ship_text_color"
         android:textSize="@dimen/aisle_ship_text_size"
         app:layout_constraintEnd_toStartOf="@id/aisleOrText"
         app:layout_constraintTop_toBottomOf="@+id/titleDivider" />

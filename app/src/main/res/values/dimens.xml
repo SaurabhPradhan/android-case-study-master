@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="deal_list_item_image_size">80dp</dimen>
     <dimen name="image_view_min_width">100dp</dimen>
     <dimen name="image_view_min_height">110dp</dimen>
     <dimen name="image_view_margin">10dp</dimen>
@@ -37,7 +36,7 @@
     <dimen name="common_view_top_margin">6dp</dimen>
     <dimen name="detailed_des_view_top_margin">8dp</dimen>
     <dimen name="sale_price_text_size">32sp</dimen>
-    <dimen name="regular_price_text_size">28sp</dimen>
+    <dimen name="regular_price_text_size">26sp</dimen>
     <dimen name="detailed_title_text_size">26sp</dimen>
     <dimen name="detailed_des_title_text_size">14sp</dimen>
     <dimen name="detail_button_min_height">60dp</dimen>

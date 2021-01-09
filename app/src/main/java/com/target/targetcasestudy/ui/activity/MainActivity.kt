@@ -1,7 +1,6 @@
 package com.target.targetcasestudy.ui.activity
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -49,7 +48,7 @@ class MainActivity : AppCompatActivity(), ActionListener {
 
     override fun onAction(action: String, data: Any?) {
         when (action) {
-            DealListFragment.ACTION_START_DEAL_ITEM_VIEW -> showDealItemFragment(data)
+            ACTION_START_DEAL_ITEM_VIEW -> showDealItemFragment(data)
             DealItemFragment.ACTION_BACK -> showDealListFragment()
         }
     }

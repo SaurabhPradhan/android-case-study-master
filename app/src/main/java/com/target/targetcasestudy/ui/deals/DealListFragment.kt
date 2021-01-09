@@ -10,7 +10,6 @@ import androidx.lifecycle.Observer
 import com.target.targetcasestudy.R
 import com.target.targetcasestudy.databinding.FragmentDealListBinding
 import com.target.targetcasestudy.model.State
-import com.target.targetcasestudy.ui.activity.MainActivity
 import com.target.targetcasestudy.ui.base.BaseFragment
 import com.target.targetcasestudy.ui.deals.adapter.DealItemAdapter
 import com.target.targetcasestudy.viewmodel.DealsViewModel

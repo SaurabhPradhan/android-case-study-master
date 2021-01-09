@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.DialogFragment
-import com.target.targetcasestudy.R
+import com.target.targetcasestudy.databinding.DialogPaymentBinding
+import com.target.targetcasestudy.util.validateCreditCard
 
 /**
  * Dialog that displays a minimal credit card entry form.
@@ -23,26 +23,27 @@ import com.target.targetcasestudy.R
  */
 class PaymentDialogFragment : DialogFragment() {
 
-  private lateinit var submitButton: Button
-  private lateinit var creditCardInput: EditText
+    private lateinit var binding: DialogPaymentBinding
 
-  override fun onCreateView(
-    inflater: LayoutInflater,
-    container: ViewGroup?,
-    savedInstanceState: Bundle?
-  ): View? {
-    val root = inflater.inflate(R.layout.dialog_payment, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = DialogPaymentBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-    submitButton = root.findViewById(R.id.submit)
-    creditCardInput = root.findViewById(R.id.card_number)
-    val cancelButton: Button = root.findViewById(R.id.cancel)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setListener()
+    }
 
-    cancelButton.setOnClickListener { dismiss() }
-    submitButton.setOnClickListener { dismiss() }
-
-    // TODO enable the submit button based on card number validity using Validators.validateCreditCard()
-
-    return root
-  }
-
+    private fun setListener() {
+        binding.cancel.setOnClickListener { dismiss() }
+        binding.submit.setOnClickListener { dismiss() }
+        binding.cardNumber.addTextChangedListener {
+            binding.submit.isEnabled = validateCreditCard(it.toString())
+        }
+    }
 }

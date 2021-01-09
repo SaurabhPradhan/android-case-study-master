@@ -1,9 +1,5 @@
 <resources>
     <string name="app_name">TargetCaseStudy</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
     <!-- Credit card validation strings. You do not need to make changes here. -->
     <string name="credit_card_payment_title">Credit Card Payment</string>
     <string name="credit_card_payment_subtitle">Note: you do NOT need to enter real data</string>
