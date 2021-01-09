@@ -22,5 +22,19 @@ package com.target.targetcasestudy.util
  * otherwise false
  */
 fun validateCreditCard(creditCardNumber: String): Boolean {
-  return false
+    return if (creditCardNumber.length in 13..19) {
+        val nDigits = creditCardNumber.length
+        var nSum = 0
+        var isSecond = false
+        for (i in nDigits - 1 downTo 0) {
+            var d = creditCardNumber[i] - '0'
+            if (isSecond) d *= 2
+            nSum += d / 10
+            nSum += d % 10
+            isSecond = !isSecond
+        }
+        nSum % 10 == 0
+    } else {
+        false
+    }
 }
