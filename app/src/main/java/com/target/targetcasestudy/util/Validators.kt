@@ -1,4 +1,4 @@
-package com.target.targetcasestudy.data
+package com.target.targetcasestudy.util
 
 /**
  * For an explanation of how to validate credit card numbers read:

@@ -1,4 +1,4 @@
-package com.target.targetcasestudy.data
+package com.target.targetcasestudy.model
 
 data class DealItem(
   var id: Int,

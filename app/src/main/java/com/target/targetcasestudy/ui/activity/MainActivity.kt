@@ -1,10 +1,11 @@
-package com.target.targetcasestudy
+package com.target.targetcasestudy.ui.activity
 
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.target.targetcasestudy.ui.DealListFragment
+import com.target.targetcasestudy.R
+import com.target.targetcasestudy.ui.deals.DealListFragment
 import com.target.targetcasestudy.ui.payment.PaymentDialogFragment
 
 class MainActivity : AppCompatActivity() {
@@ -14,7 +15,10 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
 
     supportFragmentManager.beginTransaction()
-      .replace(R.id.container, DealListFragment())
+      .replace(
+        R.id.container,
+          DealListFragment()
+      )
       .commit()
   }
 
