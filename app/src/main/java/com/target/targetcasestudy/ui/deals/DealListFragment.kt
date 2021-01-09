@@ -1,29 +1,51 @@
 package com.target.targetcasestudy.ui.deals
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import com.target.targetcasestudy.R
+import com.target.targetcasestudy.model.State
+import com.target.targetcasestudy.ui.base.BaseFragment
 import com.target.targetcasestudy.ui.deals.adapter.DealItemAdapter
+import com.target.targetcasestudy.viewmodel.DealsViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_deal_list.*
 
+@AndroidEntryPoint
+class DealListFragment : BaseFragment<DealsViewModel>() {
 
-class DealListFragment : Fragment() {
+    override fun layoutResource() = R.layout.fragment_deal_list
 
-  override fun onCreateView(
-    inflater: LayoutInflater, container: ViewGroup?,
-    savedInstanceState: Bundle?
-  ): View? {
-    val view =  inflater.inflate(R.layout.fragment_deal_list, container, false)
+    override val mViewModel: DealsViewModel by viewModels()
 
-    view.findViewById<RecyclerView>(R.id.recycler_view).layoutManager = LinearLayoutManager(requireContext())
-    view.findViewById<RecyclerView>(R.id.recycler_view).adapter =
-      DealItemAdapter()
+    private var mAdapter = DealItemAdapter()
 
-    return view
-  }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initObserver()
+    }
+
+    private fun initObserver() {
+        mViewModel.getAllDeals()
+        // Add an observer on the LiveData returned by get recipe.
+        // The onChanged() method fires when the observed data changes and the fragment is
+        // in the foreground.
+        mViewModel.postsLiveData.observe(requireActivity(), Observer { state ->
+            when (state) {
+                is State.Loading -> {
+                 }
+                is State.Success -> {
+                    recyclerView.visibility = View.VISIBLE
+                    if (state.data.products.isNotEmpty()) {
+                        recyclerView.adapter = mAdapter
+                        mAdapter.submitList(state.data.products.toMutableList())
+
+                    }
+                }
+                is State.Error -> {
+                }
+            }
+        })
+    }
 }

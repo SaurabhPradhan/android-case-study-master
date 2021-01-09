@@ -35,8 +35,8 @@ class DealsRepository @Inject constructor(
 
     /**
      * Retrieves a recipe with specified [dealsId].
-     * @param dealsId Unique id of a [DealItem].
-     * @return [DealItem] data fetched from the database.
+     * @param dealsId Unique id of a [Products].
+     * @return [Products] data fetched from the database.
      */
     @MainThread
     fun getDetailedRecipeData(dealsId: String): Flow<Products> =

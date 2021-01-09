@@ -14,7 +14,7 @@ import retrofit2.Response
  */
 abstract class NetworkRepository<RESULT, REQUEST> {
 
-    fun asFlow() = flow<State<RESULT>> {
+    fun asFlow() = flow {
         emit(State.loading())
         emit(State.success(fetchFromLocal().first()))
         val apiResponse = fetchFromRemote()
