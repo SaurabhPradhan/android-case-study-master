@@ -1,6 +1,6 @@
 package com.target.targetcasestudy
 
-import com.target.targetcasestudy.data.validateCreditCard
+import com.target.targetcasestudy.util.validateCreditCard
 import org.junit.Assert
 import org.junit.Test
 
@@ -13,7 +13,7 @@ class CreditCardValidatorTest {
   fun `is credit card number valid`() {
     Assert.assertTrue(
       "valid credit card number should yield true",
-      validateCreditCard("4539976741512043")
+        validateCreditCard("4539976741512043")
     )
   }
 }

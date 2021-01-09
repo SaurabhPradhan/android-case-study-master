@@ -1,4 +1,4 @@
-package com.target.targetcasestudy.ui
+package com.target.targetcasestudy.ui.deals
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.target.targetcasestudy.R
+import com.target.targetcasestudy.ui.deals.adapter.DealItemAdapter
 
 
 class DealListFragment : Fragment() {
@@ -20,7 +21,8 @@ class DealListFragment : Fragment() {
     val view =  inflater.inflate(R.layout.fragment_deal_list, container, false)
 
     view.findViewById<RecyclerView>(R.id.recycler_view).layoutManager = LinearLayoutManager(requireContext())
-    view.findViewById<RecyclerView>(R.id.recycler_view).adapter = DealItemAdapter()
+    view.findViewById<RecyclerView>(R.id.recycler_view).adapter =
+      DealItemAdapter()
 
     return view
   }
