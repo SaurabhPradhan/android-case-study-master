@@ -10,6 +10,7 @@ import com.target.targetcasestudy.ui.base.ActionListener
 import com.target.targetcasestudy.ui.deals.DealItemFragment
 import com.target.targetcasestudy.ui.deals.DealListFragment
 import com.target.targetcasestudy.ui.deals.DealListFragment.Companion.ACTION_START_DEAL_ITEM_VIEW
+import com.target.targetcasestudy.ui.dialog.LoadingDialogFragment
 import com.target.targetcasestudy.ui.payment.PaymentDialogFragment
 import com.target.targetcasestudy.util.gone
 import com.target.targetcasestudy.util.show
@@ -22,6 +23,8 @@ class MainActivity : AppCompatActivity(), ActionListener {
 
     private val dealListFragment = DealListFragment()
     private val dealItemFragment = DealItemFragment()
+    private lateinit var loadingDialog: LoadingDialogFragment
+    private val loadingDialogTag = "LoadingDialog"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,6 +72,33 @@ class MainActivity : AppCompatActivity(), ActionListener {
      */
     private fun showFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment).commit()
+    }
+
+    private fun initLoadingDialog() {
+        if (!::loadingDialog.isInitialized) {
+            loadingDialog = LoadingDialogFragment()
+        }
+    }
+
+    fun showProgress() {
+        initLoadingDialog()
+        if (loadingDialog.dialog == null || loadingDialog.dialog?.isShowing == false) {
+            loadingDialog.show(supportFragmentManager, loadingDialogTag)
+        }
+    }
+
+    fun hideProgress() {
+        if (::loadingDialog.isInitialized && loadingDialog.dialog?.isShowing == true) {
+            loadingDialog.dismissAllowingStateLoss()
+        }
+    }
+
+    override fun onBackPressed() {
+        if (dealItemFragment.isVisible) {
+            showDealListFragment()
+        } else if (dealListFragment.isVisible) {
+            super.onBackPressed()
+        }
     }
 
     companion object {

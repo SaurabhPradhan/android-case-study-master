@@ -13,11 +13,14 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.target.targetcasestudy.R
 import com.target.targetcasestudy.databinding.FragmentDealItemBinding
+import com.target.targetcasestudy.ui.activity.MainActivity
 import com.target.targetcasestudy.ui.activity.MainActivity.Companion.KEY_DEAL_DATA
 import com.target.targetcasestudy.ui.base.BaseFragment
 import com.target.targetcasestudy.util.GlideParams
+import com.target.targetcasestudy.util.gone
 import com.target.targetcasestudy.viewmodel.DealsViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 @AndroidEntryPoint
@@ -39,7 +42,11 @@ class DealItemFragment : BaseFragment<DealsViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
+        (activity as MainActivity).showProgress()
         initObserver()
+        (activity as MainActivity).back.setOnClickListener {
+            actionListener?.onAction(ACTION_BACK)
+        }
     }
 
     private fun initObserver() {
@@ -47,8 +54,14 @@ class DealItemFragment : BaseFragment<DealsViewModel>() {
         // in the foreground.
         arguments?.getInt(KEY_DEAL_DATA)?.let {
             mViewModel.getDetailedDealsData(it).observe(requireActivity(), Observer { product ->
-                mItemBinding.salePrice.text =
-                    if (product.salePrice != null) product.salePrice?.display_string else ""
+                (activity as MainActivity).hideProgress()
+                val isSalePriceEmpty = product.salePrice?.display_string?.isEmpty()
+                if (isSalePriceEmpty == true) {
+                    mItemBinding.regularPrice.gone()
+                    mItemBinding.salePrice.text = product.regularPrice?.display_string
+                } else {
+                    mItemBinding.salePrice.text = product.salePrice?.display_string
+                }
                 mItemBinding.regularPrice.apply {
                     setText(
                         getString(
