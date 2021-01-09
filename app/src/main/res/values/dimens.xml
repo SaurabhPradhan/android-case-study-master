@@ -1,4 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <dimen name="deal_list_item_image_size">80dp</dimen>
+    <dimen name="deal_list_item_image_size">80dp</dimen>
+    <dimen name="image_view_min_width">100dp</dimen>
+    <dimen name="image_view_min_height">110dp</dimen>
+    <dimen name="image_view_margin">10dp</dimen>
+    <dimen name="title_margin_start">10dp</dimen>
+    <dimen name="title_margin_top">5dp</dimen>
+    <dimen name="title_padding">8dp</dimen>
+    <dimen name="title_text_size">20sp</dimen>
+    <dimen name="divider_height">1dp</dimen>
+    <dimen name="divider_margin_start">16dp</dimen>
+    <dimen name="divider_margin_top">15dp</dimen>
+    <dimen name="price_margin_start">10dp</dimen>
+    <dimen name="price_margin_top">2dp</dimen>
+    <dimen name="price_padding">8dp</dimen>
+    <dimen name="price_text_size">20sp</dimen>
+    <dimen name="aisle_type_margin_start">10dp</dimen>
+    <dimen name="aisle_type_margin_top">10dp</dimen>
+    <dimen name="aisle_type_margin_end">16dp</dimen>
+    <dimen name="aisle_type_min_width">36dp</dimen>
+    <dimen name="aisle_type_min_height">36dp</dimen>
+    <dimen name="aisle_type_text_size">12sp</dimen>
+    <dimen name="aisle_or_margin_start">10dp</dimen>
+    <dimen name="aisle_or_margin_top">10dp</dimen>
+    <dimen name="aisle_or_padding">5dp</dimen>
+    <dimen name="aisle_or_text_size">16sp</dimen>
+    <dimen name="aisle_ship_text_margin_start">10dp</dimen>
+    <dimen name="aisle_ship_text_margin_top">10dp</dimen>
+    <dimen name="aisle_ship_text_size">16sp</dimen>
+    <dimen name="aisle_ship_text_padding">5dp</dimen>
 </resources>
