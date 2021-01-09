@@ -11,6 +11,10 @@ import kotlinx.coroutines.flow.flow
 import retrofit2.Response
 import javax.inject.Inject
 
+/**
+ * Singleton repository for fetching data from remote and storing it in database
+ * for offline capability. This is Single source of data.
+ */
 class DealsRepository @Inject constructor(
     private val service: DealsService,
     private val dao: DealsDao
