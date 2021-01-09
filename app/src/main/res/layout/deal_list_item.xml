@@ -2,9 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="true"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
+    android:clickable="false"
+    android:focusable="false"
     android:paddingTop="5dp">
 
     <com.target.targetcasestudy.util.NetworkImageView
@@ -12,7 +11,6 @@
         android:layout_width="@dimen/image_view_min_width"
         android:layout_height="@dimen/image_view_min_height"
         android:layout_margin="@dimen/image_view_margin"
-        android:background="@mipmap/ic_launcher"
         android:contentDescription="@string/deals_item_desc"
         android:minWidth="@dimen/image_view_min_width"
         android:minHeight="@dimen/image_view_min_height"
