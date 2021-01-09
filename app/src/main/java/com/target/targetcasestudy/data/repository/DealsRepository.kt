@@ -39,6 +39,6 @@ class DealsRepository @Inject constructor(
      * @return [Products] data fetched from the database.
      */
     @MainThread
-    fun getDetailedRecipeData(dealsId: String): Flow<Products> =
+    fun getDetailedRecipeData(dealsId: Int): Flow<Products> =
         dao.getDetailedDealInfo(dealsId)
 }
