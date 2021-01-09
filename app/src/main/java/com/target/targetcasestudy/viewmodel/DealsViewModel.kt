@@ -30,6 +30,6 @@ class DealsViewModel @ViewModelInject constructor(private val repository: DealsR
     /**
      * This function retrieve selected deal data
      */
-    fun getDetailedDealsData(id: String) =
+    fun getDetailedDealsData(id: Int) =
         repository.getDetailedRecipeData(id).asLiveData()
 }

@@ -1,25 +1,29 @@
 package com.target.targetcasestudy.ui.deals.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.target.targetcasestudy.R
+import com.target.targetcasestudy.databinding.DealListItemBinding
 import com.target.targetcasestudy.model.Products
+import com.target.targetcasestudy.ui.base.ActionListener
 import com.target.targetcasestudy.util.GlideParams
 import com.target.targetcasestudy.util.NetworkImageView
-import kotlinx.android.synthetic.main.deal_list_item.view.*
 
+class DealItemAdapter : ListAdapter<Products, DealItemAdapter.DealItemViewHolder>(DIFF_CALLBACK),
+    ActionListener {
 
-class DealItemAdapter : ListAdapter<Products, DealItemAdapter.DealItemViewHolder>(DIFF_CALLBACK) {
+    var productLiveData = MutableLiveData<Int?>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        DealItemViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.deal_list_item, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = DealItemViewHolder(
+        DealListItemBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
         )
+    )
 
     override fun onBindViewHolder(viewHolder: DealItemViewHolder, position: Int) {
         val item = getItem(position)
@@ -38,10 +42,24 @@ class DealItemAdapter : ListAdapter<Products, DealItemAdapter.DealItemViewHolder
                     GlideParams(errorImage = R.drawable.glide_error)
                 )
             }
+            itemView.setOnClickListener {
+                onAction(ACTION_ITEM_SELECTED, item.dealsId)
+            }
         }
     }
 
-    inner class DealItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    fun setData(products: List<Products>) {
+        productLiveData.value = null
+        submitList(products.toMutableList())
+    }
+
+    override fun onAction(action: String, data: Any?) {
+        if (action == ACTION_ITEM_SELECTED)
+            productLiveData.value = data as Int
+    }
+
+    inner class DealItemViewHolder(itemView: DealListItemBinding) :
+        RecyclerView.ViewHolder(itemView.root) {
         val productImage: NetworkImageView = itemView.productImageView
         val productTitle: TextView = itemView.itemTitle
         val productPrice: TextView = itemView.itemPrice
@@ -49,6 +67,8 @@ class DealItemAdapter : ListAdapter<Products, DealItemAdapter.DealItemViewHolder
     }
 
     companion object {
+        private const val ACTION_ITEM_SELECTED = "action_item_selected"
+
         private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Products>() {
             override fun areItemsTheSame(oldItem: Products, newItem: Products): Boolean =
                 oldItem.dealsId == newItem.dealsId

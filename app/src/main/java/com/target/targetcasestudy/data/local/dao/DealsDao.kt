@@ -18,6 +18,6 @@ interface DealsDao {
     suspend fun getAllDeals(): List<Products>
 
     @Query("SELECT * FROM $TABLE_NAME WHERE dealsId=:id")
-    fun getDetailedDealInfo(id: String): Flow<Products>
+    fun getDetailedDealInfo(id: Int): Flow<Products>
 
 }

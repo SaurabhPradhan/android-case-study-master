@@ -7,19 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
+import androidx.viewbinding.ViewBinding
 import com.target.targetcasestudy.R
 
+/**
+ * Abstract fragment which binds [ViewModel] [VM]
+ */
 abstract class BaseFragment<VM : ViewModel> : Fragment() {
 
-    abstract fun layoutResource(): Int
-
     protected abstract val mViewModel: VM
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View = inflater.inflate(layoutResource(), container, false)
 
     var actionListener: ActionListener? = null
 
