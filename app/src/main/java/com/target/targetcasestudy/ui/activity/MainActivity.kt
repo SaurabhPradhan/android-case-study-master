@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), ActionListener {
         setContentView(R.layout.activity_main)
         if (savedInstanceState != null && savedInstanceState.getBoolean(ACTION_START_DEAL_ITEM_VIEW)) {
             showDealItemFragment(savedInstanceState.getInt(KEY_DEAL_DATA))
-        }else{
+        } else {
             showDealListFragment()
         }
         setSupportActionBar(toolbar)
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity(), ActionListener {
     private fun showDealListFragment() {
         isDealItemFragmentVisible = false
         back.gone()
-        showFragment(dealListFragment)
+        showFragment(dealListFragment, TYPE_DEAL_ITEM_FRAGMENT)
     }
 
     private fun showDealItemFragment(data: Any?) {
@@ -75,14 +75,25 @@ class MainActivity : AppCompatActivity(), ActionListener {
         lastDealItemData = data as Int
         back.show()
         dealItemFragment.arguments = Bundle().apply { putInt(KEY_DEAL_DATA, data) }
-        showFragment(dealItemFragment)
+        showFragment(dealItemFragment, TYPE_DEAL_LIST_FRAGMENT)
     }
 
     /**
      * Standard mechanism for displaying a fragment
      */
-    private fun showFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().replace(R.id.fragmentContainer, fragment).commit()
+    private fun showFragment(fragment: Fragment, fragmentType: Int) {
+        val transaction = supportFragmentManager.beginTransaction()
+        when (fragmentType) {
+            TYPE_DEAL_LIST_FRAGMENT -> transaction.setCustomAnimations(
+                android.R.anim.slide_in_left,
+                android.R.anim.slide_out_right
+            )
+            TYPE_DEAL_ITEM_FRAGMENT -> transaction.setCustomAnimations(
+                android.R.anim.fade_in,
+                android.R.anim.fade_out
+            )
+        }
+        transaction.replace(R.id.fragmentContainer, fragment).commit()
     }
 
     private fun initLoadingDialog() {
@@ -122,5 +133,7 @@ class MainActivity : AppCompatActivity(), ActionListener {
         const val KEY_DEAL_DATA = "deal_data"
         const val ACTION_LOAD_PROGRESS_BAR = "show_progress"
         const val ACTION_HIDE_PROGRESS_BAR = "hide_progress"
+        private const val TYPE_DEAL_LIST_FRAGMENT = 0
+        private const val TYPE_DEAL_ITEM_FRAGMENT = 1
     }
 }
