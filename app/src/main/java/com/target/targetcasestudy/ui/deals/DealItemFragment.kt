@@ -42,7 +42,6 @@ class DealItemFragment : BaseFragment<DealsViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
-        (activity as MainActivity).showProgress()
         initObserver()
         (activity as MainActivity).back.setOnClickListener {
             actionListener?.onAction(ACTION_BACK)
@@ -54,7 +53,6 @@ class DealItemFragment : BaseFragment<DealsViewModel>() {
         // in the foreground.
         arguments?.getInt(KEY_DEAL_DATA)?.let {
             mViewModel.getDetailedDealsData(it).observe(requireActivity(), Observer { product ->
-                (activity as MainActivity).hideProgress()
                 val isSalePriceEmpty = product.salePrice?.display_string?.isEmpty()
                 if (isSalePriceEmpty == true) {
                     mItemBinding.regularPrice.gone()

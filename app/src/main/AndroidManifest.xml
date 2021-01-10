@@ -14,8 +14,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".ui.activity.MainActivity"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden">
+            android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
