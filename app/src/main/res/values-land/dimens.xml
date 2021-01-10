@@ -29,4 +29,5 @@
     <dimen name="aisle_ship_text_size">24sp</dimen>
     <dimen name="aisle_ship_text_padding">5dp</dimen>
     <dimen name="deal_item_constraintLayout_margin_bottom">40dp</dimen>
+    <dimen name="regular_price_view_top_margin">28dp</dimen>
 </resources>

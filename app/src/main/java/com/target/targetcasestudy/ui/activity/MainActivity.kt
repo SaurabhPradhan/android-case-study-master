@@ -7,10 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.target.targetcasestudy.R
 import com.target.targetcasestudy.ui.base.ActionListener
-import com.target.targetcasestudy.ui.deals.DealItemFragment
+import com.target.targetcasestudy.ui.deals.DealDetailFragment
 import com.target.targetcasestudy.ui.deals.DealListFragment
 import com.target.targetcasestudy.ui.deals.DealListFragment.Companion.ACTION_START_DEAL_ITEM_VIEW
-import com.target.targetcasestudy.ui.dialog.LoadingDialogFragment
 import com.target.targetcasestudy.ui.payment.PaymentDialogFragment
 import com.target.targetcasestudy.util.gone
 import com.target.targetcasestudy.util.show
@@ -22,11 +21,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity(), ActionListener {
 
     private val dealListFragment = DealListFragment()
-    private val dealItemFragment = DealItemFragment()
+    private val dealItemFragment = DealDetailFragment()
     private var isDealItemFragmentVisible = false
     private var lastDealItemData = -1
-    private lateinit var loadingDialog: LoadingDialogFragment
-    private val loadingDialogTag = "LoadingDialog"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,9 +55,7 @@ class MainActivity : AppCompatActivity(), ActionListener {
     override fun onAction(action: String, data: Any?) {
         when (action) {
             ACTION_START_DEAL_ITEM_VIEW -> showDealItemFragment(data)
-            DealItemFragment.ACTION_BACK -> showDealListFragment()
-            ACTION_HIDE_PROGRESS_BAR -> hideProgress()
-            ACTION_LOAD_PROGRESS_BAR -> showProgress()
+            DealDetailFragment.ACTION_BACK -> showDealListFragment()
         }
     }
 
@@ -96,25 +91,6 @@ class MainActivity : AppCompatActivity(), ActionListener {
         transaction.replace(R.id.fragmentContainer, fragment).commit()
     }
 
-    private fun initLoadingDialog() {
-        if (!::loadingDialog.isInitialized) {
-            loadingDialog = LoadingDialogFragment()
-        }
-    }
-
-    private fun showProgress() {
-        initLoadingDialog()
-        if (loadingDialog.dialog == null || loadingDialog.dialog?.isShowing == false) {
-            loadingDialog.show(supportFragmentManager, loadingDialogTag)
-        }
-    }
-
-    private fun hideProgress() {
-        if (::loadingDialog.isInitialized && loadingDialog.dialog?.isShowing == true) {
-            loadingDialog.dismissAllowingStateLoss()
-        }
-    }
-
     override fun onBackPressed() {
         if (dealItemFragment.isVisible) {
             showDealListFragment()
@@ -131,8 +107,6 @@ class MainActivity : AppCompatActivity(), ActionListener {
 
     companion object {
         const val KEY_DEAL_DATA = "deal_data"
-        const val ACTION_LOAD_PROGRESS_BAR = "show_progress"
-        const val ACTION_HIDE_PROGRESS_BAR = "hide_progress"
         private const val TYPE_DEAL_LIST_FRAGMENT = 0
         private const val TYPE_DEAL_ITEM_FRAGMENT = 1
     }

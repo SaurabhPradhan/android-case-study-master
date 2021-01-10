@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/deal_item_constraintLayout_margin_top"
             android:layout_marginBottom="@dimen/deal_item_constraintLayout_margin_bottom"
-            tools:context=".ui.deals.DealItemFragment">
+            tools:context=".ui.deals.DealDetailFragment">
 
             <com.target.targetcasestudy.util.NetworkImageView
                 android:id="@+id/detailImageView"
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/common_view_margin"
-                android:layout_marginTop="@dimen/common_view_top_margin"
+                android:layout_marginTop="@dimen/regular_price_view_top_margin"
                 android:layout_marginEnd="@dimen/common_view_margin"
                 android:textColor="@color/regular_price_color"
                 android:textSize="@dimen/regular_price_text_size"

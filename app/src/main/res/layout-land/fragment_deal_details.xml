@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="@dimen/deal_item_constraintLayout_margin_bottom"
-            tools:context=".ui.deals.DealItemFragment">
+            tools:context=".ui.deals.DealDetailFragment">
 
             <com.target.targetcasestudy.util.NetworkImageView
                 android:id="@+id/detailImageView"
