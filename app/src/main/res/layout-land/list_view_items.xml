@@ -11,6 +11,7 @@
         android:layout_width="@dimen/image_view_min_width"
         android:layout_height="@dimen/image_view_min_height"
         android:layout_margin="@dimen/image_view_margin"
+        android:background="@drawable/glide_error"
         android:contentDescription="@string/deals_item_desc"
         android:minWidth="@dimen/image_view_min_width"
         android:minHeight="@dimen/image_view_min_height"
@@ -25,8 +26,8 @@
         android:layout_marginTop="@dimen/title_margin_top"
         android:layout_marginEnd="@dimen/title_margin_start"
         android:maxLines="2"
-        android:textColor="@color/product_title_color"
         android:padding="@dimen/title_padding"
+        android:textColor="@color/product_title_color"
         android:textSize="@dimen/title_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/productImageView"
@@ -49,8 +50,8 @@
         android:layout_marginStart="@dimen/price_margin_start"
         android:layout_marginTop="@dimen/price_margin_top"
         android:padding="@dimen/price_padding"
-        android:textSize="@dimen/price_text_size"
         android:textColor="@color/product_title_color"
+        android:textSize="@dimen/price_text_size"
         app:layout_constraintStart_toEndOf="@+id/productImageView"
         app:layout_constraintTop_toBottomOf="@+id/titleDivider" />
 
@@ -78,9 +79,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/aisle_or_margin_start"
         android:layout_marginTop="@dimen/aisle_or_margin_top"
-        android:textColor="@color/or_text_color"
         android:padding="@dimen/aisle_or_padding"
         android:text="@string/text_or"
+        android:textColor="@color/or_text_color"
         android:textSize="@dimen/aisle_or_text_size"
         app:layout_constraintEnd_toStartOf="@id/aisleType"
         app:layout_constraintTop_toBottomOf="@+id/titleDivider" />

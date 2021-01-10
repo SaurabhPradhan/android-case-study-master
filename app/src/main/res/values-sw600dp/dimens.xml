@@ -33,6 +33,7 @@
     <dimen name="toolbar_title_text_size">20sp</dimen>
     <dimen name="common_view_margin">16dp</dimen>
     <dimen name="common_view_top_margin">20dp</dimen>
+    <dimen name="regular_price_view_top_margin">25dp</dimen>
     <dimen name="detailed_des_view_top_margin">8dp</dimen>
     <dimen name="sale_price_text_size">34sp</dimen>
     <dimen name="regular_price_text_size">28sp</dimen>

@@ -12,7 +12,7 @@ import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.target.targetcasestudy.R
-import com.target.targetcasestudy.databinding.FragmentDealItemBinding
+import com.target.targetcasestudy.databinding.FragmentDealDetailsBinding
 import com.target.targetcasestudy.ui.activity.MainActivity
 import com.target.targetcasestudy.ui.activity.MainActivity.Companion.KEY_DEAL_DATA
 import com.target.targetcasestudy.ui.base.BaseFragment
@@ -24,9 +24,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 @AndroidEntryPoint
-class DealItemFragment : BaseFragment<DealsViewModel>() {
+class DealDetailFragment : BaseFragment<DealsViewModel>() {
 
-    private lateinit var mItemBinding: FragmentDealItemBinding
+    private lateinit var mItemBinding: FragmentDealDetailsBinding
 
     override val mViewModel: DealsViewModel by viewModels()
 
@@ -35,7 +35,7 @@ class DealItemFragment : BaseFragment<DealsViewModel>() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mItemBinding = FragmentDealItemBinding.inflate(inflater, container, false)
+        mItemBinding = FragmentDealDetailsBinding.inflate(inflater, container, false)
         return mItemBinding.root
     }
 

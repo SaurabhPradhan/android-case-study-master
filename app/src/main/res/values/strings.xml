@@ -14,5 +14,8 @@
     <string name="add_to_list">add to list</string>
     <string name="add_to_cart">add to cart</string>
     <string name="regular_price_text">Reg: %1$s</string>
-
+    <string name="text_no_connectivity">No Internet Connection</string>
+    <string name="text_connectivity">Back Online</string>
+    <string name="text_loading">Loading</string>
+    <string name="text_error_loading">Error while loading</string>
 </resources>

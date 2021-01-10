@@ -15,4 +15,6 @@
     <color name="regular_price_color">#adadad</color>
     <color name="ship_text_color">#404040</color>
     <color name="or_text_color">#e4e4e4</color>
+    <color name="colorStatusConnected">#43A047</color>
+    <color name="colorStatusNotConnected">#D32F2F</color>
 </resources>

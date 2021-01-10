@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.target.targetcasestudy.R
-import com.target.targetcasestudy.databinding.DealListItemBinding
+import com.target.targetcasestudy.databinding.ListViewItemsBinding
 import com.target.targetcasestudy.model.Products
 import com.target.targetcasestudy.ui.base.ActionListener
 import com.target.targetcasestudy.util.GlideParams
@@ -20,7 +20,7 @@ class DealItemAdapter : ListAdapter<Products, DealItemAdapter.DealItemViewHolder
     var productLiveData = MutableLiveData<Int?>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = DealItemViewHolder(
-        DealListItemBinding.inflate(
+        ListViewItemsBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
     )
@@ -58,7 +58,7 @@ class DealItemAdapter : ListAdapter<Products, DealItemAdapter.DealItemViewHolder
             productLiveData.value = data as Int
     }
 
-    inner class DealItemViewHolder(itemView: DealListItemBinding) :
+    inner class DealItemViewHolder(itemView: ListViewItemsBinding) :
         RecyclerView.ViewHolder(itemView.root) {
         val productImage: NetworkImageView = itemView.productImageView
         val productTitle: TextView = itemView.itemTitle

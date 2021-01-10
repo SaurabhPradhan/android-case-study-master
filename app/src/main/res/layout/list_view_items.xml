@@ -11,6 +11,7 @@
         android:layout_width="@dimen/image_view_min_width"
         android:layout_height="@dimen/image_view_min_height"
         android:layout_margin="@dimen/image_view_margin"
+        android:background="@drawable/glide_error"
         android:contentDescription="@string/deals_item_desc"
         android:minWidth="@dimen/image_view_min_width"
         android:minHeight="@dimen/image_view_min_height"
