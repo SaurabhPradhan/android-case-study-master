@@ -9,11 +9,20 @@ import org.junit.Test
  * over the project, so you can use any libraries and testing strategies that see fit.
  */
 class CreditCardValidatorTest {
+
   @Test
   fun `is credit card number valid`() {
     Assert.assertTrue(
       "valid credit card number should yield true",
         validateCreditCard("4539976741512043")
+    )
+  }
+
+  @Test
+  fun `is credit card number invalid`() {
+    Assert.assertFalse(
+      "invalid credit card number should yield false",
+      validateCreditCard("43767512043")
     )
   }
 }
