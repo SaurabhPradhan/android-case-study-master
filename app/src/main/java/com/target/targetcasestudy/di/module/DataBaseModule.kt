@@ -8,6 +8,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import javax.inject.Singleton
 
+/**
+ * class provides the deals database and dao instance
+ */
 @InstallIn(ApplicationComponent::class)
 @Module
 class DataBaseModule {

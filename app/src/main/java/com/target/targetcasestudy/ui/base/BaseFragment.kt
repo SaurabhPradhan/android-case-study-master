@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.target.targetcasestudy.R
 
 /**
- * Abstract fragment which binds [ViewModel] [VM]
+ * Abstract fragment which binds [ViewModel] [VM] and activity
  */
 abstract class BaseFragment<VM : ViewModel> : Fragment() {
 
