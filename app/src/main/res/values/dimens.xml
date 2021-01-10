@@ -11,7 +11,7 @@
     <dimen name="divider_margin_start">16dp</dimen>
     <dimen name="divider_margin_top">15dp</dimen>
     <dimen name="price_margin_start">10dp</dimen>
-    <dimen name="price_margin_top">2dp</dimen>
+    <dimen name="price_margin_top">5dp</dimen>
     <dimen name="price_padding">8dp</dimen>
     <dimen name="price_text_size">20sp</dimen>
     <dimen name="aisle_type_margin_start">10dp</dimen>
@@ -43,4 +43,6 @@
     <dimen name="detail_image_min_height">200dp</dimen>
     <dimen name="detail_image_min_width">180dp</dimen>
     <dimen name="detail_image_margin_top">20dp</dimen>
+    <dimen name="deal_item_constraintLayout_margin_bottom">40dp</dimen>
+    <dimen name="deal_item_constraintLayout_margin_top">10dp</dimen>
 </resources>

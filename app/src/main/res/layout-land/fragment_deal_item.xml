@@ -16,7 +16,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/deal_item_constraintLayout_margin_top"
             android:layout_marginBottom="@dimen/deal_item_constraintLayout_margin_bottom"
             tools:context=".ui.deals.DealItemFragment">
 
