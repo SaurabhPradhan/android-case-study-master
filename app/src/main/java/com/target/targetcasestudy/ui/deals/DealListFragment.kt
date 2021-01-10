@@ -46,9 +46,8 @@ class DealListFragment : BaseFragment<DealsViewModel>() {
         setHasOptionsMenu(true)
     }
 
+    // This function will Observer the data changes
     private fun initObserver() {
-        // The onChanged() method fires when the observed data changes and the fragment is
-        // in the foreground.
         mViewModel.postsLiveData.observe(requireActivity(), Observer { state ->
             when (state) {
                 is State.Loading -> {
@@ -62,9 +61,6 @@ class DealListFragment : BaseFragment<DealsViewModel>() {
                 }
                 is State.Error -> {
                     showGenericStatus(getString(R.string.text_error_loading))
-                    if (mAdapter.itemCount == 0) {
-                        mViewModel.getAllDeals()
-                    }
                 }
             }
         })
@@ -87,6 +83,9 @@ class DealListFragment : BaseFragment<DealsViewModel>() {
             })
     }
 
+    /**
+     * This function will show the network error and data loading message
+     */
     private fun showStatusText(msg: String, color: Int) {
         binding.textStatus.apply {
             text = msg
@@ -95,6 +94,9 @@ class DealListFragment : BaseFragment<DealsViewModel>() {
         }
     }
 
+    /**
+     * This function will show the network connected msg
+     */
     private fun showGenericStatus(msg: String) {
         binding.textStatus.apply {
             setBackgroundColor(getColor(context, R.color.colorStatusConnected))
@@ -112,6 +114,7 @@ class DealListFragment : BaseFragment<DealsViewModel>() {
         }
     }
 
+    //This function is used to show the menu item when we come back from deal detail fragment
     override fun onPrepareOptionsMenu(menu: Menu) {
         menu.findItem(R.id.creditCard).isVisible = true
         super.onPrepareOptionsMenu(menu)

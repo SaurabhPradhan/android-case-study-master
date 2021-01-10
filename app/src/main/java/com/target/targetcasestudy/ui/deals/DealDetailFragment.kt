@@ -22,7 +22,6 @@ import com.target.targetcasestudy.viewmodel.DealsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
-
 @AndroidEntryPoint
 class DealDetailFragment : BaseFragment<DealsViewModel>() {
 
@@ -48,9 +47,8 @@ class DealDetailFragment : BaseFragment<DealsViewModel>() {
         }
     }
 
+    // This function will Observer the data changes
     private fun initObserver() {
-        // The onChanged() method fires when the observed data changes and the fragment is
-        // in the foreground.
         arguments?.getInt(KEY_DEAL_DATA)?.let {
             mViewModel.getDetailedDealsData(it).observe(requireActivity(), Observer { product ->
                 val isSalePriceEmpty = product.salePrice?.display_string?.isEmpty()
@@ -85,6 +83,7 @@ class DealDetailFragment : BaseFragment<DealsViewModel>() {
         }
     }
 
+    //This function is used to hide the menu item when we come from deal list fragment
     override fun onPrepareOptionsMenu(menu: Menu) {
         menu.findItem(R.id.creditCard).isVisible = false
         super.onPrepareOptionsMenu(menu)

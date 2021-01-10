@@ -5,6 +5,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+/**
+ * This class create the deals table
+ */
 @Entity(tableName = Products.TABLE_NAME)
 data class Products(
     @PrimaryKey
